@@ -12,7 +12,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import test.TestUtil;
-import zadatak1.izuzeci.FormatBrojaException;
 
 public class KnjigaTest {
 
@@ -86,14 +85,14 @@ public class KnjigaTest {
 	}
 	
 	@Test
-	public void metoda_setBroj() throws FormatBrojaException {
+	public void metoda_setBroj() throws Exception {
 		instance.setBroj("4432-4324");
 		String brojValue = (String) TestUtil.getFieldValue(instance, "broj");
 		assertEquals("Nakon poziva metode setBroj(String) sa prosledjenim argumentom \"4432-4324\", vrednost atributa broj nema tu vrednost", "4432-4324", brojValue);
 	}
 	
 	@Test
-	public void metoda_setBroj_null() throws FormatBrojaException {
+	public void metoda_setBroj_null() throws Exception {
 		expectedEx.expect(RuntimeException.class);
 	    expectedEx.expectMessage("Broj ne moze biti NULL");
 	    
@@ -101,8 +100,8 @@ public class KnjigaTest {
 	}
 	
 	@Test
-	public void metoda_setBroj_losFormatBroja() throws FormatBrojaException {
-		expectedEx.expect(FormatBrojaException.class);
+	public void metoda_setBroj_losFormatBroja() throws Exception {
+		expectedEx.expect(Exception.class);
 		expectedEx.expectMessage("Broj nije u odgovarajucem formatu");
 		
 		instance.setBroj("aaa");

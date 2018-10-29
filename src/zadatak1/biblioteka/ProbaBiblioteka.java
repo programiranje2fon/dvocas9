@@ -1,7 +1,6 @@
 package zadatak1.biblioteka;
 
 import zadatak1.Knjiga;
-import zadatak1.izuzeci.FormatBrojaException;
 
 public class ProbaBiblioteka {
 
@@ -10,7 +9,7 @@ public class ProbaBiblioteka {
 		k1.setNaziv("Pored puta");
 		try {
 			k1.setBroj("0324-2010");
-		} catch (FormatBrojaException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
@@ -18,7 +17,7 @@ public class ProbaBiblioteka {
 		k2.setNaziv("Mansarda");
 		try {
 			k2.setBroj("5253-2012");
-		} catch (FormatBrojaException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		

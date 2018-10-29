@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import test.TestUtil;
 import zadatak1.biblioteka.Biblioteka;
-import zadatak1.izuzeci.FormatBrojaException;
 
 public class BibliotekaTest {
 
@@ -97,7 +96,7 @@ public class BibliotekaTest {
 	}
 	
 	@Test
-	public void metoda_arhivirajKnjige() throws FormatBrojaException {
+	public void metoda_arhivirajKnjige() throws Exception {
 		Knjiga k1 = new Knjiga();
 		k1.setBroj("2345-2011");
 		instance.dodajKnjigu(k1);

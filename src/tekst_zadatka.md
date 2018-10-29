@@ -16,11 +16,8 @@ Proširiti klasu **Knjiga** na sledeći način:
 
 Izmeniti klasu **ProbaKnjiga** tako da se knjizi kao broj postavlja NULL. Uhvatiti neproveravani izuzetak koji baca metoda **setBroj** i ispisati poruku greške u konzoli.
 
-Napraviti klasu **FormatBrojaException** u paketu **zadatak1.izuzeci** koja predstavlja proveravani izuzetak i koja ima:
-1. Javni **konstruktor** koji prima tekstualni opis izuzetka kao parametar, a on se prosleđuje konstruktoru nadređene klase.
-
 Proširiti klasu **Knjiga** na sledeći način:
-1. Izmeniti **set metodu za atribut broj**. Ukoliko prosleđeni broj nije u formatu XXXX-YYYY (prva četiri karaktera su redni broj, zatim crtica, zatim četiri karaktera koja predstavljaju godinu), baciti izuzetak klase **FormatBrojaException** sa porukom "Broj nije u odgovarajucem formatu".
+1. Izmeniti **set metodu za atribut broj**. Ukoliko prosleđeni broj nije u formatu XXXX-YYYY (prva četiri karaktera su redni broj, zatim crtica, zatim četiri karaktera koja predstavljaju godinu), baciti **proveravani izuzetak** sa porukom "Broj nije u odgovarajucem formatu".
 
 Izmeniti klasu **ProbaKnjiga** tako da se u main metodi hvataju oba izuzetka koje baca metoda **setBroj** i ispisati poruku greške u konzoli. Metodi **setBroj** proslediti vrednost "1234".
 <br><br>

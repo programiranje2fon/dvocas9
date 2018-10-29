@@ -1,7 +1,5 @@
 package zadatak1;
 
-import zadatak1.izuzeci.FormatBrojaException;
-
 public class ProbaKnjiga {
 
 	public static void main(String[] args) {
@@ -10,9 +8,7 @@ public class ProbaKnjiga {
 
 		try {
 			k1.setBroj("1234");
-		} catch (RuntimeException e) {
-			System.out.println(e.getMessage());
-		} catch (FormatBrojaException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

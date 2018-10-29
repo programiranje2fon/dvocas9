@@ -1,7 +1,5 @@
 package zadatak1;
 
-import zadatak1.izuzeci.FormatBrojaException;
-
 public class Knjiga {
 
 	private String naziv = "";
@@ -23,11 +21,11 @@ public class Knjiga {
 		return broj;
 	}
 
-	public void setBroj(String broj) throws FormatBrojaException {
+	public void setBroj(String broj) throws Exception {
 		if (broj == null) {
 			throw new RuntimeException("Broj ne moze biti NULL");
 		} else if (broj.length() != 9 && broj.indexOf(4) != '-') {
-			throw new FormatBrojaException("Broj nije u odgovarajucem formatu");
+			throw new Exception("Broj nije u odgovarajucem formatu");
 		} else {
 			this.broj = broj;
 		}
