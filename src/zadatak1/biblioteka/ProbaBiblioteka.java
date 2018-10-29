@@ -6,9 +6,9 @@ public class ProbaBiblioteka {
 
 	public static void main(String[] args) {
 		Knjiga k1 = new Knjiga();
-		k1.setNaziv("Pored puta");
+		k1.setNaziv("Znakovi pored puta");
 		try {
-			k1.setBroj("0324-2010");
+			k1.setGodina(1976);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -16,7 +16,7 @@ public class ProbaBiblioteka {
 		Knjiga k2 = new Knjiga();
 		k2.setNaziv("Mansarda");
 		try {
-			k2.setBroj("5253-2012");
+			k2.setGodina(1960);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

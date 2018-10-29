@@ -1,9 +1,11 @@
 package zadatak1;
 
+import java.util.GregorianCalendar;
+
 public class Knjiga {
 
 	private String naziv = "";
-	private String broj = "";
+	private int godina;
 
 	public String getNaziv() {
 		return naziv;
@@ -17,18 +19,28 @@ public class Knjiga {
 		}
 	}
 
-	public String getBroj() {
-		return broj;
+	public int getGodina() {
+		return godina;
 	}
 
-	public void setBroj(String broj) throws Exception {
-		if (broj == null) {
-			throw new RuntimeException("Broj ne moze biti NULL");
-		} else if (broj.length() != 9 && broj.indexOf(4) != '-') {
-			throw new Exception("Broj nije u odgovarajucem formatu");
+	public void setGodina(int godina) throws Exception {
+		GregorianCalendar sada = new GregorianCalendar();
+
+		if (godina >= 1950 && godina <= sada.get(GregorianCalendar.YEAR)) {
+			this.godina = godina;
 		} else {
-			this.broj = broj;
+			throw new Exception("Godina nije u odgovarajucem opsegu");
 		}
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Knjiga)) {
+			return false;
+		}
+
+		Knjiga k1 = (Knjiga) obj;
+
+		return this.naziv.equals(k1.naziv) && this.godina == k1.godina;
+	}
 }

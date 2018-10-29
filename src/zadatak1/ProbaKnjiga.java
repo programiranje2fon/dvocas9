@@ -7,7 +7,7 @@ public class ProbaKnjiga {
 		System.out.println(k1.getNaziv().length());
 
 		try {
-			k1.setBroj("1234");
+			k1.setGodina(2015);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

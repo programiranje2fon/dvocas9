@@ -40,10 +40,7 @@ public class Biblioteka {
 		while (iterator.hasNext()) {
 			Knjiga knjiga = (Knjiga) iterator.next();
 			
-			String godinaKnjigeStr = knjiga.getBroj().substring(5, 9);
-			int godinaKnjige = Integer.parseInt(godinaKnjigeStr);
-			
-			if (godina == godinaKnjige) {
+			if (knjiga.getGodina() <= godina) {
 				iterator.remove();
 			}
 		}

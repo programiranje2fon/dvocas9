@@ -98,25 +98,25 @@ public class BibliotekaTest {
 	@Test
 	public void metoda_arhivirajKnjige() throws Exception {
 		Knjiga k1 = new Knjiga();
-		k1.setBroj("2345-2011");
+		k1.setGodina(2011);
 		instance.dodajKnjigu(k1);
 		
 		Knjiga k2 = new Knjiga();
-		k2.setBroj("6325-2008");
+		k2.setGodina(2008);
 		instance.dodajKnjigu(k2);
 		
 		Knjiga k3 = new Knjiga();
-		k3.setBroj("7345-2016");
+		k3.setGodina(2016);
 		instance.dodajKnjigu(k3);
 		
 		Knjiga k4 = new Knjiga();
-		k4.setBroj("6275-2011");
+		k4.setGodina(2011);
 		instance.dodajKnjigu(k4);
 		
 		instance.arhivirajKnjige(2011);
 		
 		List<?> knjige = (List<?>) TestUtil.getFieldValue(instance, "knjige");
 		
-		assertTrue("Za biblioteku sa knjigama sa brojevima: \"2345-2011\", \"6325-2008\", \"7345-2016\", \"6275-2011\", metoda pozvana sa argumentom 2011 nije arhivirala knjige sa brojevima \"2345-2011\" i \"6275-2011?\"", knjige.size() == 2 && !knjige.contains(k1) && !knjige.contains(k4));
+		assertTrue("Za biblioteku sa knjigama sa godinama: \"2011\", \"2008\", \"2016\", \"2011\", metoda pozvana sa argumentom 2011 nije arhivirala knjige sa godinama \"2008\" i \"2011\"", knjige.size() == 1 && !knjige.contains(k1) && !knjige.contains(k2) && !knjige.contains(k4));
 	}
 }

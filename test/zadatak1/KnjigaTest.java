@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Modifier;
+import java.util.GregorianCalendar;
 
 import org.junit.After;
 import org.junit.Before;
@@ -47,26 +48,20 @@ public class KnjigaTest {
 	}
 	
 	@Test
-	public void atribut_broj() {
-		assertTrue("U klasi nije definisan atribut broj", TestUtil.doesFieldExist(Knjiga.class, "broj"));
+	public void atribut_godina() {
+		assertTrue("U klasi nije definisan atribut godina", TestUtil.doesFieldExist(Knjiga.class, "godina"));
 	}
 	
 	@Test
-	public void atribut_broj_vidljivost() {
-		assertTrue("Atribut broj nije privatan", TestUtil.hasFieldModifier(Knjiga.class, "broj", Modifier.PRIVATE));
-	}
-	
-	@Test
-	public void atribut_broj_pocetnaVrednost() {
-		String brojValue = (String) TestUtil.getFieldValue(instance, "broj");
-		assertEquals("Pocetna vrednost atributa broj nije prazan string", "", brojValue);
+	public void atribut_godina_vidljivost() {
+		assertTrue("Atribut godina nije privatan", TestUtil.hasFieldModifier(Knjiga.class, "godina", Modifier.PRIVATE));
 	}
 	
 	@Test
 	public void metoda_setNaziv() {
 		instance.setNaziv("Na Drini cuprija");
-		String nazivValue = (String) TestUtil.getFieldValue(instance, "naziv");
-		assertEquals("Nakon poziva metode setNaziv(String) sa prosledjenim argumentom \"Na Drini cuprija\", vrednost atributa naziv nema tu vrednost", "Na Drini cuprija", nazivValue);
+		String naziv = (String) TestUtil.getFieldValue(instance, "naziv");
+		assertEquals("Nakon poziva metode setNaziv(String) sa prosledjenim argumentom \"Na Drini cuprija\", vrednost atributa naziv nema tu vrednost", "Na Drini cuprija", naziv);
 	}
 	
 	@Test
@@ -79,39 +74,41 @@ public class KnjigaTest {
 	
 	@Test
 	public void metoda_getNaziv() {
-		String nazivValue = (String) TestUtil.getFieldValue(instance, "naziv");
+		String naziv = (String) TestUtil.getFieldValue(instance, "naziv");
 
-		assertEquals("Metoda getNaziv() ne vraca vrednost atributa naziv", nazivValue, instance.getNaziv());
+		assertEquals("Metoda getNaziv() ne vraca vrednost atributa naziv", naziv, instance.getNaziv());
 	}
 	
 	@Test
-	public void metoda_setBroj() throws Exception {
-		instance.setBroj("4432-4324");
-		String brojValue = (String) TestUtil.getFieldValue(instance, "broj");
-		assertEquals("Nakon poziva metode setBroj(String) sa prosledjenim argumentom \"4432-4324\", vrednost atributa broj nema tu vrednost", "4432-4324", brojValue);
+	public void metoda_setGodina() throws Exception {
+		instance.setGodina(2010);
+		int godina = (int) TestUtil.getFieldValue(instance, "godina");
+		assertEquals("Nakon poziva metode setGodina(int) sa prosledjenim argumentom \"2010\", vrednost atributa godina nema tu vrednost", 2010, godina);
 	}
 	
 	@Test
-	public void metoda_setBroj_null() throws Exception {
-		expectedEx.expect(RuntimeException.class);
-	    expectedEx.expectMessage("Broj ne moze biti NULL");
-	    
-		instance.setBroj(null);
-	}
-	
-	@Test
-	public void metoda_setBroj_losFormatBroja() throws Exception {
+	public void metoda_setGodina_ispodOpsega() throws Exception {
 		expectedEx.expect(Exception.class);
-		expectedEx.expectMessage("Broj nije u odgovarajucem formatu");
-		
-		instance.setBroj("aaa");
+	    expectedEx.expectMessage("Godina nije u odgovarajucem opsegu");
+	    
+		instance.setGodina(1900);
 	}
 	
 	@Test
-	public void metoda_getBroj() {
-		String brojValue = (String) TestUtil.getFieldValue(instance, "broj");
+	public void metoda_setGodina_iznadOpsega() throws Exception {
+		expectedEx.expect(Exception.class);
+		expectedEx.expectMessage("Godina nije u odgovarajucem opsegu");
+		
+		GregorianCalendar sada = new GregorianCalendar();
+		
+		instance.setGodina(sada.get(GregorianCalendar.YEAR + 1));
+	}
+	
+	@Test
+	public void metoda_getGodina() {
+		int godina = (int) TestUtil.getFieldValue(instance, "godina");
 
-		assertEquals("Metoda getBroj() ne vraca vrednost atributa broj", brojValue, instance.getBroj());
+		assertEquals("Metoda metoda_getGodina() ne vraca vrednost atributa godina", godina, instance.getGodina());
 	}
 	
 }
