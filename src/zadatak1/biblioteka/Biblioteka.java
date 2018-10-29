@@ -26,7 +26,7 @@ public class Biblioteka {
 		List<Knjiga> knjigeSaNazivom = new LinkedList<>();
 		
 		for (Knjiga knjiga : knjige) {
-			if (knjiga.getNaziv().startsWith(pocetakNaziva)) {
+			if (knjiga.getNaziv().toLowerCase().startsWith(pocetakNaziva.toLowerCase())) {
 				knjigeSaNazivom.add(knjiga);
 			}
 		}
@@ -35,16 +35,15 @@ public class Biblioteka {
 	}
 	
 	public void arhivirajKnjige(int godina) {
-		String godinaString = String.valueOf(godina);
-		
 		Iterator<Knjiga> iterator = knjige.iterator();
 		
 		while (iterator.hasNext()) {
 			Knjiga knjiga = (Knjiga) iterator.next();
 			
-			String godinaKnjige = knjiga.getNaziv().substring(5, 9);
+			String godinaKnjigeStr = knjiga.getBroj().substring(5, 9);
+			int godinaKnjige = Integer.parseInt(godinaKnjigeStr);
 			
-			if (godinaKnjige.equals(godinaString)) {
+			if (godina == godinaKnjige) {
 				iterator.remove();
 			}
 		}
