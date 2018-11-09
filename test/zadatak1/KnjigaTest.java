@@ -111,4 +111,15 @@ public class KnjigaTest {
 		assertEquals("Metoda metoda_getGodina() ne vraca vrednost atributa godina", godina, instance.getGodina());
 	}
 	
+	@Test
+	public void metoda_equals() throws Exception {
+		instance.setNaziv("Zapisi o Goji");
+		instance.setGodina(1961);
+		
+		Knjiga k1 = new Knjiga();
+		k1.setNaziv("Zapisi o Goji");
+		k1.setGodina(1961);
+		
+		assertEquals("Metoda equals() ne vraca vrednost true za prosledjenu knjigu sa istim nazivom i godinom", k1, instance);
+	}
 }
