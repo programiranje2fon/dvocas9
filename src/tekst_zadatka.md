@@ -29,7 +29,7 @@ Napraviti klasu **Biblioteka** u paketu **zadatak1.biblioteka** koja ima:
 2. Javnu metodu **dodajKnjigu** koja kao parametar dobija instancu klase Knjiga i dodaje je na kraj liste.
 3. Javnu metodu **daLiPostoji** koja kao parametar prima objekat klase Knjiga. Metoda vraća TRUE ukoliko u listi postoji knjiga sa istim nazivom i godinom, a u suprotnom metoda vraća FALSE.
 4. Javnu metodu **obrisiKnjigu** koja kao parametar prima objekat klase Knjiga i ako postoji u listi, briše je.
-5. Javnu metodu **pretraziKnjige** koja kao parametar dobija jedan String. Metoda pronalazi u biblioteci i vraća sve knjige (kao listu) čiji naziv počinje tekstom datim kao parametar.
+5. Javnu metodu **pretraziKnjige** koja kao parametar dobija jedan String. Metoda pronalazi u biblioteci i vraća sve knjige (kao listu) čiji naziv počinje tekstom datim kao parametar. Pri tome, obezbediti da pretraga ne bude osetljiva na velika i mala slova.
 6. Javnu metodu **arhivirajKnjige** koja kao parametar dobija godinu (ceo broj). Metoda pronalazi i uklanja ih iz liste knjige koje su izdate date godine i pre nje.
 
 Napraviti klasu **ProbaBiblioteka** u paketu **zadatak1.biblioteka** u kojoj se kreira jedan objekat klase **Biblioteka**. Napraviti dva objekta klase Knjiga sa podacima:
