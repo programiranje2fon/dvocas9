@@ -76,7 +76,7 @@ public class RestoranTest {
 	}
 
 	@Test
-	public void metoda_setBroj_1() {
+	public void metoda_setOcena_1() {
 		instance.setOcena(1);
 		int ocenaValue = (int) TestUtil.getFieldValue(instance, "ocena");
 		assertEquals(
@@ -85,7 +85,7 @@ public class RestoranTest {
 	}
 
 	@Test
-	public void metoda_setBroj_3() {
+	public void metoda_setOcena_3() {
 		instance.setOcena(3);
 		int brojValue = (int) TestUtil.getFieldValue(instance, "ocena");
 		assertEquals(
@@ -94,7 +94,7 @@ public class RestoranTest {
 	}
 
 	@Test
-	public void metoda_setBroj_5() {
+	public void metoda_setOcena_5() {
 		instance.setOcena(5);
 		int ocenaValue = (int) TestUtil.getFieldValue(instance, "ocena");
 		assertEquals(
@@ -103,7 +103,7 @@ public class RestoranTest {
 	}
 
 	@Test
-	public void metoda_setBroj_vanGranice() {
+	public void metoda_setOcena_vanGranice() {
 		expectedEx.expect(RuntimeException.class);
 		expectedEx.expectMessage("GRESKA");
 
